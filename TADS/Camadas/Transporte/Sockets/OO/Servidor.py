@@ -1,5 +1,6 @@
-import socket
+import socket, time
 from Sistema import Sistema
+from threading import Thread
 
 class Servidor:
     soc : socket
@@ -12,7 +13,8 @@ class Servidor:
     
     def ligar(self) -> None:
         self.soc.listen()
-        self.publicarCoiso()
+        publicador = Thread(target=self.publicarCoiso())
+        publicador.start()
         while True:
             cliente, address = self.soc.accept()
             msg = cliente.recv(128).decode("utf-8")
@@ -25,13 +27,15 @@ class Servidor:
         interfaces = socket.getaddrinfo(host=socket.gethostname(), port=None, family=socket.AF_INET)
         allips = [ip[-1][0] for ip in interfaces]
         msg = str(self.ipPorta).encode("utf-8")
-        for ip in allips:
-            print(f'Publicando em {ip}')
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # UDP
-            sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-            sock.bind((ip,0))
-            sock.sendto(msg, ("255.255.255.255", 5005))
-            sock.close()
+        while True:
+            for ip in allips:
+                print(f'Publicando em {ip}')
+                sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # UDP
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+                sock.bind((ip,0))
+                sock.sendto(msg, ("255.255.255.255", 5005))
+                sock.close()
+            time.sleep(60)
 
 def main():
     server = Servidor("0.0.0.0",8888)
