@@ -15,6 +15,7 @@ class Servidor:
         self.soc.listen()
         publicador = Thread(target=self.publicarCoiso())
         publicador.start()
+        publicador.setblocking(False)
         while True:
             cliente, address = self.soc.accept()
             msg = cliente.recv(128).decode("utf-8")
