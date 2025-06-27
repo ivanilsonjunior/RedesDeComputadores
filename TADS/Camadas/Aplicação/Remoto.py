@@ -7,7 +7,7 @@ try:
     while True:
         data, addr = sock.recvfrom(1024)
         comando = data.decode()   
-        if comando.split("")[0] == "quit":
+        if comando.split(" ")[0] == "quit":
             if comando[1] == "123":
                 sock.sendto(b"Fechando...", addr)
                 print("Fechando...")
