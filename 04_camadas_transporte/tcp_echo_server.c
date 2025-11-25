@@ -1,113 +1,107 @@
 /*
- * Servidor de eco TCP (Camada de Transporte)
- *
- * Objetivo didático:
- *    - Mostrar a criação de um socket TCP em C.
- *    - Demonstrar bind, listen, accept, recv e send.
- *    - A cada mensagem recebida, o servidor devolve a mesma mensagem.
- *
- * Compilação:
- *    $ gcc tcp_echo_server.c -o tcp_echo_server
- *
- * Execução:
- *    $ ./tcp_echo_server
- */
+Servidor TCP (ECHO) — Exemplo Didático em C
+Camada de Transporte — Redes de Computadores / ADS
+DIATINF — IFRN
+
+Objetivo:
+    Demonstrar como implementar um servidor TCP em C usando sockets.
+    Este servidor recebe mensagens de um cliente e devolve o mesmo
+    conteúdo (ECHO).
+
+Conceitos reforçados:
+    - criação de socket (SOCK_STREAM)
+    - bind() para associar IP/porta
+    - listen() para modo passivo
+    - accept() para aceitar clientes
+    - recv() e send() para comunicação
+    - fechamento correto da conexão
+
+Compilação:
+    $ gcc tcp_echo_server.c -o tcp_echo_server
+
+Execução:
+    $ ./tcp_echo_server
+
+Teste:
+    $ telnet 127.0.0.1 5000
+    ou
+    $ nc 127.0.0.1 5000
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>         // close
-#include <arpa/inet.h>      // struct sockaddr_in, inet_ntoa
-#include <netinet/in.h>     // IPPROTO_TCP, INADDR_ANY
+#include <unistd.h>
+#include <arpa/inet.h>
 
-#define PORTA   5000
-#define BACKLOG 5
-#define BUF_TAM 1024
+#define PORTA 5000
+#define TAM_BUFFER 1024
 
-int main(void) {
-    int sock_servidor, sock_cliente;
-    struct sockaddr_in endereco_servidor;
-    struct sockaddr_in endereco_cliente;
-    socklen_t tamanho_endereco_cliente;
-    char buffer[BUF_TAM];
+int main() {
+    int servidor, cliente;
+    struct sockaddr_in endereco_servidor, endereco_cliente;
+    socklen_t tamanho_cliente;
+    char buffer[TAM_BUFFER];
+    int bytes_lidos;
 
-    // Cria socket TCP (IPv4)
-    sock_servidor = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock_servidor < 0) {
+    // 1. Criar socket TCP
+    servidor = socket(AF_INET, SOCK_STREAM, 0);
+    if (servidor < 0) {
         perror("Erro ao criar socket");
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
-    // Permite reuso de porta
-    int opt = 1;
-    if (setsockopt(sock_servidor, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
-        perror("Erro em setsockopt");
-        close(sock_servidor);
-        exit(EXIT_FAILURE);
-    }
+    printf("[*] Socket criado com sucesso.\n");
 
-    // Preenche estrutura de endereço do servidor
-    memset(&endereco_servidor, 0, sizeof(endereco_servidor));
+    // 2. Preparar estrutura do servidor
     endereco_servidor.sin_family = AF_INET;
     endereco_servidor.sin_addr.s_addr = INADDR_ANY;
     endereco_servidor.sin_port = htons(PORTA);
 
-    // Associa (bind)
-    if (bind(sock_servidor, (struct sockaddr *)&endereco_servidor, sizeof(endereco_servidor)) < 0) {
-        perror("Erro em bind");
-        close(sock_servidor);
-        exit(EXIT_FAILURE);
+    // 3. Associar (bind)
+    if (bind(servidor, (struct sockaddr*)&endereco_servidor, sizeof(endereco_servidor)) < 0) {
+        perror("Erro no bind");
+        exit(1);
     }
 
-    // Coloca em modo de escuta (listen)
-    if (listen(sock_servidor, BACKLOG) < 0) {
-        perror("Erro em listen");
-        close(sock_servidor);
-        exit(EXIT_FAILURE);
+    printf("[*] Bind realizado em 0.0.0.0:%d\n", PORTA);
+
+    // 4. Colocar socket em modo de escuta
+    if (listen(servidor, 5) < 0) {
+        perror("Erro no listen");
+        exit(1);
     }
 
-    printf("[*] Servidor de eco TCP escutando na porta %d\n", PORTA);
+    printf("[*] Servidor TCP aguardando conexões...\n");
 
+    // Loop principal de atendimento
     while (1) {
-        printf("[*] Aguardando conexão...\n");
-        tamanho_endereco_cliente = sizeof(endereco_cliente);
+        tamanho_cliente = sizeof(endereco_cliente);
 
-        // Aceita conexão de um cliente
-        sock_cliente = accept(sock_servidor,
-                              (struct sockaddr *)&endereco_cliente,
-                              &tamanho_endereco_cliente);
-        if (sock_cliente < 0) {
-            perror("Erro em accept");
+        // 5. Aceitar cliente
+        cliente = accept(servidor, (struct sockaddr*)&endereco_cliente, &tamanho_cliente);
+        if (cliente < 0) {
+            perror("Erro no accept");
             continue;
         }
 
-        printf("[+] Cliente conectado: %s:%d\n",
+        printf("[+] Cliente conectado de %s:%d\n",
                inet_ntoa(endereco_cliente.sin_addr),
                ntohs(endereco_cliente.sin_port));
 
-        // Loop de eco
-        ssize_t lidos;
-        while ((lidos = recv(sock_cliente, buffer, BUF_TAM - 1, 0)) > 0) {
-            buffer[lidos] = '\0';  // Garante terminação em string
-            printf("[>] Recebido: %s", buffer);
+        // 6. Comunicação com cliente
+        while ((bytes_lidos = recv(cliente, buffer, TAM_BUFFER, 0)) > 0) {
+            buffer[bytes_lidos] = '\0';
+            printf("[Recebido]: %s\n", buffer);
 
-            // Envia de volta (eco)
-            if (send(sock_cliente, buffer, lidos, 0) < 0) {
-                perror("Erro ao enviar dados");
-                break;
-            }
+            // Enviar de volta (ECHO)
+            send(cliente, buffer, bytes_lidos, 0);
         }
 
-        if (lidos == 0) {
-            printf("[-] Cliente encerrou a conexão.\n");
-        } else if (lidos < 0) {
-            perror("Erro em recv");
-        }
-
-        close(sock_cliente);
+        printf("[-] Cliente desconectado.\n");
+        close(cliente);
     }
 
-    // Fecha socket do servidor (na prática, nunca chega aqui)
-    close(sock_servidor);
+    close(servidor);
     return 0;
 }

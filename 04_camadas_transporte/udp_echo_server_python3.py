@@ -1,35 +1,61 @@
 #!/usr/bin/env python3
 """
-Servidor UDP (Camada de Transporte)
+Servidor UDP — Exemplo Didático (ECHO)
+Camada de Transporte — Redes de Computadores / ADS
+DIATINF — IFRN
 
-Objetivo didático:
-    - Demonstrar comunicação sem conexão (connectionless).
-    - Mostrar a ausência de confiabilidade no UDP.
-    - Comparar com o servidor TCP.
+Objetivo:
+    Este servidor UDP recebe datagramas de clientes e devolve
+    exatamente o mesmo conteúdo (ECHO), ilustrando:
 
-Execução:
-    $ python3 udp_echo_server_python3.py
+    - Criação de socket UDP
+    - Funcionamento sem conexão (connectionless)
+    - Recebimento via recvfrom()
+    - Envio via sendto()
+    - Ausência de confirmação/garantia de entrega
+
+Como executar:
+    1) Execute este servidor:
+        $ python3 udp_echo_server_python3.py
+
+    2) Em outra janela/terminal, use o cliente:
+        $ python3 udp_echo_client_python3.py
+
+    OU envie manualmente:
+        $ echo "teste" | nc -u 127.0.0.1 6000
+
+Relação com o estudo:
+    Demonstra as características do UDP:
+        - Sem conexão
+        - Sem confiabilidade
+        - Sem controle de fluxo
+        - Sem garantia de chegada
 """
 
 import socket
 
 HOST = "0.0.0.0"
-PORT = 5001
+PORT = 6000
+
 
 def main():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind((HOST, PORT))
+    # Criação do socket UDP (SOCK_DGRAM)
+    servidor = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    print(f"[+] Servidor UDP escutando em {HOST}:{PORT}")
+    # Associação à porta local
+    servidor.bind((HOST, PORT))
+
+    print(f"[*] Servidor UDP iniciado em {HOST}:{PORT}")
+    print("[*] Aguardando datagramas...\n")
 
     while True:
-        dados, endereco = sock.recvfrom(1024)
-        mensagem = dados.decode().strip()
+        # Recebe datagrama e endereço de origem
+        dados, endereco = servidor.recvfrom(1024)
 
-        print(f"[>] Recebido de {endereco}: {mensagem}")
+        print(f"[Recebido de {endereco}]: {dados.decode().strip()}")
 
-        # Envia o mesmo pacote de volta
-        sock.sendto(dados, endereco)
+        # Envia de volta (ECHO)
+        servidor.sendto(dados, endereco)
 
 
 if __name__ == "__main__":
