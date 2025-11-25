@@ -1,34 +1,40 @@
 #!/usr/bin/env python3
 """
-Cliente de eco TCP (Camada de Transporte)
+Cliente TCP (Camada de Transporte)
 
 Objetivo didático:
-    - Demonstrar como um cliente se conecta a um servidor TCP.
-    - Enviar dados e receber a resposta de volta.
+    - Conectar-se a um servidor TCP.
+    - Enviar mensagens e aguardar a resposta.
+    - Demonstrar como funciona o fluxo confiável do TCP.
+
+Execução:
+    $ python3 tcp_echo_client_python3.py
 """
 
 import socket
 
-SERVIDOR = "127.0.0.1"  # Endereço do servidor (localhost)
-PORTA = 5000            # Porta TCP do servidor de eco
+SERVIDOR = "127.0.0.1"
+PORTA = 5000
 
+def main():
+    # Cria socket TCP
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-def main() -> None:
-    """Função principal do cliente de eco TCP."""
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        print(f"[*] Conectando a {SERVIDOR}:{PORTA}...")
-        sock.connect((SERVIDOR, PORTA))
-        print("[+] Conectado! Digite mensagens (ou 'sair' para encerrar).")
+    print(f"[*] Conectando a {SERVIDOR}:{PORTA}...")
+    sock.connect((SERVIDOR, PORTA))
+    print("[+] Conectado! Digite mensagens.\n")
 
-        while True:
-            msg = input("> ")
-            if msg.lower() == "sair":
-                print("[*] Encerrando cliente.")
-                break
+    while True:
+        msg = input("> ")
+        if msg.lower() == "sair":
+            print("[*] Cliente encerrado.")
+            break
 
-            sock.sendall((msg + "\n").encode("utf-8"))
-            dados = sock.recv(1024)
-            print(f"[<] Resposta do servidor: {dados.decode('utf-8').strip()}")
+        sock.sendall((msg + "\n").encode())
+        resposta = sock.recv(1024)
+        print("[<] Resposta:", resposta.decode().strip())
+
+    sock.close()
 
 
 if __name__ == "__main__":

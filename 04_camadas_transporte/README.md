@@ -1,70 +1,69 @@
 
 # 04 — Camada de Transporte
 
-Este diretório contém exemplos de código didático relacionados à **Camada de Transporte** do modelo TCP/IP, com implementações em **Python 3** e **C**, demonstrando os dois principais protocolos desta camada:
+Este diretório contém exemplos de código didático relacionados à **Camada de Transporte** do modelo TCP/IP, implementados em **Python 3** e **C (POSIX)**.
 
-- **TCP** – Orientado à conexão, confiável, garante entrega e ordem.
-- **UDP** – Não orientado à conexão, sem garantia de entrega ou ordem.
+Ele demonstra o funcionamento prático dos dois principais protocolos dessa camada:
 
-Os exemplos foram desenvolvidos para fins educacionais nas disciplinas da **DIATINF/IFRN**, atendendo aos cursos:
+- **TCP** – orientado à conexão, confiável, com controle de fluxo.  
+- **UDP** – não orientado à conexão, sem garantias de entrega ou ordem.  
 
-- CST em Redes de Computadores  
-- CST em Análise e Desenvolvimento de Sistemas  
+Todos os scripts foram preparados com foco no ensino para os cursos:
+
+- CST em Redes de Computadores (RC)  
+- CST em Análise e Desenvolvimento de Sistemas (ADS)  
 
 ---
 
 ## 📘 Objetivos Didáticos
 
-- Demonstrar o estabelecimento e encerramento de conexões TCP.
-- Explicar como funcionam portas, multiplexação e fluxo de dados.
-- Evidenciar diferenças práticas entre TCP e UDP.
-- Permitir que estudantes explorem falhas, latência, pacote perdido, etc.
+- Entender o funcionamento da camada de transporte.
+- Visualizar como portas identificam serviços.
+- Diferenciar TCP e UDP através de código real.
+- Compreender conexões, fluxo, pacotes e mensagens.
+- Proporcionar um laboratório simples para experimentação.
 
 ---
 
 ## 📂 Arquivos Disponíveis
 
-### 🟦 **TCP – Transmission Control Protocol**
+### 🟦 TCP (Transmission Control Protocol)
 
-| Arquivo | Descrição |
-|--------|-----------|
-| `tcp_echo_server_python3.py` | Servidor TCP que recebe mensagens e devolve (ECO). |
-| `tcp_echo_client_python3.py` | Cliente TCP que envia mensagens ao servidor. |
-| `tcp_echo_server.c` | Servidor TCP em C (POSIX). |
-| `tcp_echo_client.c` | Cliente TCP em C (POSIX). |
-
----
-
-### 🟧 **UDP – User Datagram Protocol**
-
-| Arquivo | Descrição |
-|--------|-----------|
-| `udp_echo_server_python3.py` | Servidor UDP que recebe datagramas e devolve. |
-| `udp_echo_client_python3.py` | Cliente UDP para testar envio/recebimento. |
+| Arquivo | Linguagem | Descrição |
+|--------|-----------|-----------|
+| `tcp_echo_server_python3.py` | Python 3 | Servidor TCP de echo, altamente comentado. |
+| `tcp_echo_client_python3.py` | Python 3 | Cliente TCP para testes. |
+| `tcp_echo_server.c` | C (POSIX) | Servidor TCP em baixo nível. |
+| `tcp_echo_client.c` | C (POSIX) | Cliente TCP compatível com o servidor acima. |
 
 ---
 
-## ▶ Como Executar os Exemplos
+### 🟧 UDP (User Datagram Protocol)
 
-### 🐍 **Python 3**
+| Arquivo | Linguagem | Descrição |
+|--------|-----------|-----------|
+| `udp_echo_server_python3.py` | Python 3 | Servidor UDP que devolve datagramas. |
+| `udp_echo_client_python3.py` | Python 3 | Cliente UDP simples. |
 
-Execute qualquer script assim:
+---
+
+## ▶ Como Executar
+
+### 🐍 Python 3
 
 ```bash
 python3 nome_do_arquivo.py
 ```
 
----
+### 🧰 C (Linux)
 
-### 🧰 **C (Linux)**
-
-Compile:
+Compilar:
 
 ```bash
 gcc arquivo.c -o programa
 ```
 
-Execute:
+Executar:
 
 ```bash
 ./programa
@@ -74,37 +73,34 @@ Execute:
 
 ## 🧪 Exercícios Recomendados
 
-### 🔹 Experimentos com TCP
-1. Adicione suporte a múltiplos clientes usando threads.
-2. Meça o RTT (round-trip time) de cada mensagem.
-3. Implemente um mini-chat com broadcast.
-4. Adicione logs com timestamp em cada mensagem.
-5. Modifique o cliente para enviar mensagens automáticas a cada 2 segundos.
-
-### 🔹 Experimentos com UDP
-1. Envie 100 pacotes e calcule taxa de perda.
-2. Varie o tamanho dos pacotes para observar fragmentação.
-3. Adicione simulação de perda artificial (dropar 30% dos pacotes).
-4. Meça latência aproximada (UDP “ping”).
-5. Crie um modo “flood” para testar sobrecarga.
+### 🔹 TCP
+1. Adicione suporte a múltiplos clientes usando threads.  
+2. Faça o cliente medir o RTT de cada mensagem enviada.  
+3. Crie um mini-chat com broadcast.  
+4. Modifique o servidor para registrar todas as mensagens em um arquivo.  
+5. Faça o servidor limitar o tamanho das mensagens (controle de aplicação).
 
 ---
 
-## 📚 Relacionamento com o Modelo TCP/IP
-
-A camada de transporte é responsável por:
-
-- **Multiplexação/demultiplexação** (uso de portas)
-- **Segmentação e reagrupamento**
-- **Garantia de confiabilidade (TCP)**
-- **Comunicação sem conexão (UDP)**
-
-Este diretório fornece exemplos práticos desses conceitos.
+### 🔹 UDP
+1. Envie 100 pacotes e calcule quantos retornam (taxa de perda).  
+2. Varie o tamanho dos pacotes para observar fragmentação.  
+3. Adicione uma “perda artificial” de 20%.  
+4. Faça o cliente medir RTT simulando um UDP ping.  
+5. Crie um modo “stress test”: enviar o máximo possível por 5 segundos.
 
 ---
 
-## 👨‍🏫 Autor / DIATINF–IFRN
+## 👨‍🏫 Observações Didáticas
 
-Material desenvolvido para fins educacionais nos cursos da DIATINF/IFRN.  
-Sinta-se livre para reutilizar e adaptar em sala de aula.
+- TCP é ótimo para comparar com UDP — sempre que possível, use os dois scripts juntos.
+- Execute vários clientes TCP ao mesmo tempo para mostrar multiplexação.
+- Alterar portas, TTL, e delays é ótimo para experimentação.
+- O aluno aprende MUITO ao modificar esse código.
 
+---
+
+## DIATINF – IFRN
+
+Material de apoio educacional para as disciplinas de Redes.
+Sinta-se à vontade para adaptar, melhorar e ampliar.

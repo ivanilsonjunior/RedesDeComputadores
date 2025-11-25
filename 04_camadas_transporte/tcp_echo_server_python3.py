@@ -1,58 +1,63 @@
 #!/usr/bin/env python3
 """
-Servidor de eco TCP (Camada de Transporte)
+Servidor de Eco TCP (Camada de Transporte)
 
 Objetivo didático:
-    - Demonstrar o funcionamento básico do TCP.
-    - Mostrar a ideia de porta, conexão e fluxo confiável.
-    - A cada mensagem recebida, o servidor devolve (eco) a mesma mensagem.
+    Este código demonstra:
+    - Como criar um socket TCP.
+    - Como o servidor aceita conexões (three-way handshake).
+    - Como é o fluxo de envio/recebimento de dados.
+    - Conceitos fundamentais como porta, conexão, fluxo e eco.
 
-Como usar:
-    1. Execute este servidor:
-        $ python3 tcp_echo_server_python3.py
-    2. Em outro terminal, use o cliente:
-        $ python3 tcp_echo_client_python3.py
-    3. Digite mensagens no cliente e observe o comportamento.
+Como executar:
+    $ python3 tcp_echo_server_python3.py
+
+Relação com o modelo TCP/IP:
+    Aplicação    → sua lógica (eco)
+    Transporte   → TCP (este script)
+    Rede         → IP (camada inferior)
 """
 
 import socket
 
-HOST = "0.0.0.0"   # Escuta em todas as interfaces
-PORT = 5000        # Porta TCP escolhida para o serviço de eco
+HOST = "0.0.0.0"
+PORT = 5000
 
-
-def main() -> None:
-    """Função principal do servidor de eco TCP."""
-    # Cria o socket TCP (SOCK_STREAM)
+def main():
+    # Cria o socket TCP
     servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    # Permite reuso rápido da porta após encerrar o servidor
+    # Permite reusar a porta rapidamente
     servidor.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     # Associa o socket ao endereço e porta
     servidor.bind((HOST, PORT))
+
+    # Coloca o socket em modo de escuta (aguardando clientes)
     servidor.listen()
 
-    print(f"[*] Servidor de eco TCP escutando em {HOST}:{PORT}")
+    print(f"Servidor TCP escutando em {HOST}:{PORT}")
 
     while True:
-        print("[*] Aguardando conexão de um cliente...")
+        # Aguarda um cliente
         conexao, endereco = servidor.accept()
         print(f"[+] Cliente conectado: {endereco}")
 
-        # Usa o with para garantir fechamento da conexão
         with conexao:
+            # Loop para comunicação
             while True:
                 dados = conexao.recv(1024)
+
+                # Sem dados = cliente encerrou
                 if not dados:
-                    print(f"[-] Cliente {endereco} encerrou a conexão.")
+                    print("[-] Cliente desconectou.")
                     break
 
-                mensagem = dados.decode("utf-8").strip()
-                print(f"[>] Recebido de {endereco}: {mensagem}")
+                mensagem = dados.decode().strip()
+                print(f"Recebido: {mensagem}")
 
                 resposta = f"ECO: {mensagem}\n"
-                conexao.sendall(resposta.encode("utf-8"))
+                conexao.sendall(resposta.encode())
 
 
 if __name__ == "__main__":
