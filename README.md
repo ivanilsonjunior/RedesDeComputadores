@@ -1,173 +1,215 @@
-# Redes de Computadores --- Exemplos Didáticos
+# 📘 Redes de Computadores --- Material Didático Completo
 
-Repositório oficial de apoio às disciplinas da DIATINF/IFRN\
-**CST em Redes de Computadores**\
-**CST em Análise e Desenvolvimento de Sistemas**
+Repositório oficial contendo **exemplos práticos**, **scripts**,
+**exercícios**, **materiais teóricos** e **side quests** para
+disciplinas de:
 
-------------------------------------------------------------------------
+-   **Redes de Computadores**\
+-   **Segurança da Informação**\
+-   **Criptografia**\
+-   **IoT / Sistemas Embarcados**\
+-   **Programação (apoio complementar)**
 
-## 📘 Sobre o Repositório
-
-Este repositório reúne exemplos práticos, códigos comentados, exercícios
-e materiais de apoio utilizados nas disciplinas relacionadas a **Redes
-de Computadores**, **Comunicação de Dados**, **Protocolos de Internet**
-e **Segurança** da DIATINF/IFRN.
-
-O objetivo é fornecer **materiais claros, acessíveis e acompanhados de
-explicações**, de forma que estudantes dos dois cursos possam entender o
-funcionamento das camadas da pilha TCP/IP e conceitos essenciais de
-redes na prática.
-
-Este repositório cobre conteúdos de:
-
--   Conceitos básicos de redes\
--   Modelos OSI e TCP/IP\
--   Protocolos de aplicação (HTTP, DNS, SMTP, etc.)\
--   Camada de transporte (TCP, UDP, multiplexação)\
--   Camada de rede (IP, roteamento)\
--   Componentes físicos de redes\
--   Conceitos de segurança de redes e software
+Este repositório foi estruturado para ser usado em **aulas,
+laboratórios, cursos e estudos autônomos**.
 
 ------------------------------------------------------------------------
 
-## 🎯 Objetivos
+# 🧭 Navegação Rápida
 
--   Apresentar **exemplos simples e funcionais** em **Python 3** e
-    **C**, com comentários em português.
--   Relacionar o código prático com os **conceitos teóricos de redes**
-    estudados em sala.\
--   Demonstrar o funcionamento real de protocolos de rede.\
--   Fornecer um material que sirva de base para futuras atividades,
-    listas e projetos.\
--   Criar um espaço para **experimentação de código** e exploração de
-    conceitos.
+-   📚 **[SUMMARY.md --- Sumário Geral](SUMMARY.md)**\
+-   📖 **[INDEX.md --- Índice Detalhado](INDEX.md)**\
+-   🏗️ **[PROJECT_STRUCTURE.md --- Estrutura Oficial do
+    Projeto](PROJECT_STRUCTURE.md)**\
+-   📝 **Exercícios:** `exercicios/`\
+-   🔐 **Criptografia & Segurança:**
+    `material_de_apoio/Camadas/SideQuests/Segurança/Criptografia/`
 
 ------------------------------------------------------------------------
 
-## 🧭 Organização do Repositório
+# 🗂️ Estrutura Geral do Repositório
 
-A organização segue a estrutura lógica dos conteúdos das disciplinas.
+A organização segue a lógica didática clássica das disciplinas de Redes:
 
-    RedesDeComputadores/
-     ├── 01_conceitos_basicos/
-     ├── 02_modelos_de_comunicacao/
-     ├── 03_camadas_aplicacao/
-     ├── 04_camadas_transporte/
-     ├── 05_camadas_rede/
-     ├── 06_componentes_fisicos/
-     └── material_de_apoio/
+    /
+    ├── 01_conceitos_basicos/
+    ├── 02_modelos_de_comunicacao/
+    ├── 03_camadas_aplicacao/
+    ├── 04_camadas_transporte/
+    ├── 05_camadas_de_rede/
+    ├── 06_componentes_fisicos/
+    │
+    ├── exercicios/
+    │
+    ├── material_de_apoio/
+    │   ├── Camadas/
+    │   │   ├── SideQuests/
+    │   │   │   └── Segurança/
+    │   │   │       └── Criptografia/
+    │
+    ├── README.md
+    ├── SUMMARY.md
+    ├── INDEX.md
+    └── LICENSE
 
-### 📁 **01_conceitos_basicos**
-
-Conceitos fundamentais, tipos de redes (LAN, MAN, WAN), topologias,
-legislação e introdução à Internet.
-
-### 📁 **02_modelos_de_comunicacao**
-
-Materiais explicando OSI e TCP/IP, organização em camadas e como os
-protocolos interagem.
-
-### 📁 **03_camadas_aplicacao**
-
-Exemplos de protocolos da camada de aplicação, como: - HTTP
-(cliente/servidor) - DNS (consulta simples) - E-mail (SMTP/IMAP
-conceitual) - SSH (noções gerais)
-
-### 📁 **04_camadas_transporte**
-
-Exemplos em Python e C: - Servidor e cliente TCP\
-- Servidor e cliente UDP\
-- Multiplexação básica (portas)\
-- Conceitos de conexões e fluxo
-
-### 📁 **05_camadas_rede**
-
-Scripts demonstrando: - Endereçamento IP\
-- Sub-redes e máscaras\
-- IPv6 (exemplos didáticos)\
-- Noções de roteamento e encaminhamento
-
-### 📁 **06_componentes_fisicos**
-
-Materiais sobre hardware de redes: - Placas de rede\
-- Switches, roteadores, hubs\
-- Repetidores, access points\
-- Meios físicos
+Cada uma das pastas numeradas corresponde a uma **unidade de conteúdo**
+no curso.
 
 ------------------------------------------------------------------------
 
-## 🛠 Linguagens Utilizadas
+# 🎯 Objetivos do Repositório
 
--   **Python 3.x**\
--   **C (padrão POSIX / Linux)**\
--   Scripts e arquivos de apoio em Markdown.
-
-Todos os códigos possuem: - Comentários em português\
-- Docstrings explicativas\
-- Estrutura didática orientada para iniciantes
-
-------------------------------------------------------------------------
-
-## 📚 Público-Alvo
-
-Este repositório atende aos estudantes das disciplinas de:
-
--   Fundamentos de Redes de Computadores\
--   Comunicação de Dados\
--   Protocolos de Internet\
--   Administração de Redes\
--   Segurança da Informação e de Software\
--   Programação de Redes
-
-Dos cursos:
-
--   **CST em Redes de Computadores (Redes)**\
--   **CST em Análise e Desenvolvimento de Sistemas (TADS)**
+✔ Consolidar num único local todo o conteúdo prático e teórico usado nas
+disciplinas\
+✔ Fornecer códigos simples e executáveis para laboratório\
+✔ Criar uma base modular que pode ser usada em **várias disciplinas**\
+✔ Servir como referência para estudos posteriores ou projetos dos
+alunos\
+✔ Facilitar manutenção e expansão por meio de documentação formal
 
 ------------------------------------------------------------------------
 
-## 🧪 Como Executar os Exemplos
+# 🧠 Conteúdos Incluídos
 
-### ▶ Python
+## 🟦 1. Conceitos Básicos --- `01_conceitos_basicos/`
+
+-   Redes PAN/LAN/MAN/WAN\
+-   Topologias\
+-   Noções de comunicação\
+-   Legislação\
+-   Primeira visão da Internet
+
+## 🟩 2. Modelos de Comunicação --- `02_modelos_de_comunicacao/`
+
+-   RM-OSI\
+-   TCP/IP\
+-   Encapsulamento\
+-   Comparações
+
+## 🟧 3. Camada de Aplicação --- `03_camadas_aplicacao/`
+
+-   HTTP / HTTPS\
+-   FTP / SFTP\
+-   SMTP / POP3 / IMAP\
+-   DNS\
+-   SSH\
+-   Cliente/Servidor
+
+## 🟨 4. Camada de Transporte --- `04_camadas_transporte/`
+
+-   UDP\
+-   TCP\
+-   Controle de congestionamento\
+-   Multiplexação
+
+## 🟥 5. Camada de Rede --- `05_camadas_de_rede/`
+
+-   IPv4\
+-   IPv6\
+-   ARP/RARP\
+-   CIDR, VLSM\
+-   Roteamento básico
+
+## 🟫 6. Componentes Físicos --- `06_componentes_fisicos/`
+
+-   NICs\
+-   Hubs, switches, bridges\
+-   Roteadores\
+-   APs, repetidores\
+-   Meios físicos
+
+------------------------------------------------------------------------
+
+# 🔐 SideQuest: Segurança e Criptografia
+
+A pasta `material_de_apoio/.../Criptografia/` contém um módulo inteiro
+dedicado a:
+
+### **Simétrica**
+
+-   AES (ECB, CBC, GCM)\
+-   Cifra de César\
+-   Criptografia de arquivos
+
+### **Assimétrica**
+
+-   RSA básico\
+-   Geração de chaves\
+-   Assinaturas\
+-   Mini-handshake cliente-servidor
+
+### **Hash, HMAC e Integridade**
+
+-   SHA-256\
+-   HMAC\
+-   Salt de senhas\
+-   Efeito avalanche\
+-   Hash de arquivos
+
+Cada módulo possui **README próprio**, exemplos e scripts prontos.
+
+------------------------------------------------------------------------
+
+# 🧪 Exercícios e Laboratórios
+
+Pasta: `exercicios/`
+
+Inclui: - listas de exercícios\
+- roteiros de laboratório\
+- atividades guiadas\
+- desafios práticos
+
+------------------------------------------------------------------------
+
+# 🛠️ Como Utilizar
+
+## 1. Pré-requisitos
+
+-   Python 3 (para scripts de criptografia e protocolos)\
+-   Compilador C (para alguns exemplos didáticos)\
+-   Navegador web para consultar documentação\
+-   Git (opcional para clonar)
+
+## 2. Clonar o repositório
 
 ``` bash
-python3 arquivo.py
+git clone https://github.com/ivanilsonjunior/RedesDeComputadores
 ```
 
-### ▶ C
+## 3. Executar scripts Python
 
 ``` bash
-gcc arquivo.c -o programa
-./programa
+python3 nome_do_script.py
 ```
 
-------------------------------------------------------------------------
+## 4. Navegar pela documentação
 
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas!
-
-Para propor melhorias:
-
-1.  Faça um fork do projeto\
-2.  Crie uma branch (ex.: `melhorias`)\
-3.  Envie um Pull Request com suas alterações\
-4.  Descreva claramente a intenção da modificação
-
-Sugestões de novos exemplos, melhorias didáticas e correções são sempre
-bem-vindas.
+Use os arquivos: - `SUMMARY.md` para navegação geral\
+- `INDEX.md` para conteúdo detalhado\
+- `PROJECT_STRUCTURE.md` para entender a organização
 
 ------------------------------------------------------------------------
 
-## 👨‍🏫 Mantido por
+# 🤝 Contribuições
 
-Professores da **DIATINF -- IFRN (Campus Natal-Central)**\
-e colaboradores da comunidade acadêmica.
+Contribuições são bem-vindas!\
+Sugestões, correções ou novos conteúdos podem seguir estes passos:
+
+1.  Criar um branch\
+2.  Documentar alterações\
+3.  Garantir README na nova pasta\
+4.  Seguir convenções do projeto\
+5.  Abrir um Pull Request
 
 ------------------------------------------------------------------------
 
-## 📄 Licença
+# 📜 Licença
 
-Este repositório é disponibilizado para fins educacionais, podendo ser
-reutilizado com fins acadêmicos mediante referência ao IFRN e aos
-autores.
+Este material é distribuído sob a licença **GPL-3.0**.\
+Consulte o arquivo `LICENSE` para detalhes.
+
+------------------------------------------------------------------------
+
+# 🧭 Última Atualização
+
+*(preencher conforme commits futuros)*
