@@ -1,0 +1,5 @@
+signers:
+  meu_cert_icpedu:
+    key: chave_privada.pem
+    cert: certificado_publico.pem
+    key_passphrase: null
