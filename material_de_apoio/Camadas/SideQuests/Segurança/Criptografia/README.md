@@ -9,11 +9,11 @@ O objetivo deste material é fornecer ao aluno um conjunto sólido de
 ferramentas e conceitos para compreender, testar e aplicar técnicas
 reais de criptografia utilizadas em sistemas modernos, incluindo:
 
--   Comunicação segura\
--   Armazenamento criptografado\
--   Assinatura de mensagens e documentos\
--   Certificados digitais ICP-Brasil / ICP-EDU\
--   Hashes criptográficos e HMAC\
+-   Comunicação segura
+-   Armazenamento criptografado
+-   Assinatura de mensagens e documentos
+-   Certificados digitais ICP-Brasil / ICP-EDU
+-   Hashes criptográficos e HMAC
 -   Algoritmos clássicos e modernos
 
 ------------------------------------------------------------------------
@@ -35,17 +35,17 @@ decifrar.
 
 ### Conteúdos disponíveis:
 
--   **Cifra de César (básica e avançada/cíclica OO)**\
--   **AES (ECB, CBC, GCM)**\
--   **Criptografia de arquivos (streaming e blocos)**\
+-   **Cifra de César (básica e avançada/cíclica OO)**
+-   **AES (ECB, CBC, GCM)**
+-   **Criptografia de arquivos (streaming e blocos)**
 -   **Exemplos práticos com Python e OpenSSL**
 
 ### Pontos importantes abordados:
 
--   Modos de operação de blocos\
--   Importância do IV e nonce\
--   Segurança do AES GCM\
--   Por que **ECB é inseguro**\
+-   Modos de operação de blocos
+-   Importância do IV e nonce
+-   Segurança do AES GCM
+-   Por que **ECB é inseguro**
 -   Uso correto de chaves e padding
 
 📌 Pasta: `Criptografia/Simétrica/`
@@ -54,25 +54,25 @@ decifrar.
 
 # 🟩 2. Criptografia Assimétrica (`Assimétrica/`)
 
-Mecanismos que usam **um par de chaves**:\
-🔑 **chave privada** (mantida em segredo)\
+Mecanismos que usam **um par de chaves**:
+🔑 **chave privada** (mantida em segredo)
 🔓 **chave pública** (distribuída livremente)
 
 ### Conteúdos disponíveis:
 
--   Geração de chaves RSA\
--   Cifra e decifra com RSA\
--   Assinatura e verificação\
--   Handshake simplificado cliente/servidor\
--   **Integração completa com ICP-EDU**\
+-   Geração de chaves RSA
+-   Cifra e decifra com RSA
+-   Assinatura e verificação
+-   Handshake simplificado cliente/servidor
+-   **Integração completa com ICP-EDU**
 -   **Assinatura digital real de PDF (PAdES)**
 
 ### Novidades importantes:
 
--   Nova pasta `ICP-EDU/`\
--   Scripts Python para assinar/verificar documentos\
--   Scripts OpenSSL\
--   Integração com certificados reais da RNP\
+-   Nova pasta `ICP-EDU/`
+-   Scripts Python para assinar/verificar documentos
+-   Scripts OpenSSL
+-   Integração com certificados reais da RNP
 -   Uso do PyHanko para assinar PDFs "à moda SEI"
 
 📌 Pasta: `Criptografia/Assimétrica/`
@@ -83,15 +83,15 @@ Mecanismos que usam **um par de chaves**:\
 
 Funções de hash criptográficas são usadas para:
 
--   Integridade de dados\
--   Armazenamento seguro de senhas\
--   Autenticação (HMAC)\
--   Assinatura e verificação de documentos\
+-   Integridade de dados
+-   Armazenamento seguro de senhas
+-   Autenticação (HMAC)
+-   Assinatura e verificação de documentos
 -   Detecção de alterações (efeito avalanche)
 
 ### Conteúdos disponíveis:
 
--   SHA‑256 (exemplo didático)\
+-   SHA‑256 (exemplo didático)
 -   HMAC\
 -   Avalanche (ver como pequenas mudanças alteram o hash)\
 -   Hash de arquivos
@@ -108,10 +108,10 @@ O aluno aprende a usar um **certificado real**, emitido pela:
 
 Inclui:
 
--   Conversão de `.p12` → `.pem`\
--   Assinatura digital de arquivos\
--   Assinatura **PAdES** de PDFs\
--   Validação com Adobe Reader\
+-   Conversão de `.p12` → `.pem`
+-   Assinatura digital de arquivos
+-   Assinatura **PAdES** de PDFs
+-   Validação com Adobe Reader
 -   Scripts Python e OpenSSL
 
 📌 Pasta: `Criptografia/Assimétrica/ICP-EDU/`
@@ -123,10 +123,10 @@ Inclui:
 Este repositório foi otimizado para atividades práticas do IFRN,
 incluindo:
 
--   Projetos de laboratório\
--   Exercícios de segurança e redes\
--   Aulas demonstrativas\
--   Integração com conteúdos de certificação\
+-   Projetos de laboratório
+-   Exercícios de segurança e redes
+-   Aulas demonstrativas
+-   Integração com conteúdos de certificação
 -   Estudos avançados de criptografia aplicada
 
 ------------------------------------------------------------------------
@@ -145,12 +145,12 @@ incluindo:
 
 Ao final deste módulo, o aluno deve ser capaz de:
 
--   Compreender diferenças entre simétrica / assimétrica / hashing\
--   Usar AES da forma correta\
--   Gerar e usar chaves RSA\
--   Assinar e verificar mensagens\
--   Emitir certificados ICP-EDU\
--   Assinar PDFs no padrão PAdES\
+-   Compreender diferenças entre simétrica / assimétrica / hashing
+-   Usar AES da forma correta
+-   Gerar e usar chaves RSA
+-   Assinar e verificar mensagens
+-   Emitir certificados ICP-EDU
+-   Assinar PDFs no padrão PAdES
 -   Validar assinaturas com PyHanko e Adobe Reader
 
 ------------------------------------------------------------------------

@@ -39,7 +39,7 @@ AES.
         ├── decriptarArquivo.py
         └── README.md
 
-Cada módulo cobre um nível diferente de abstração:\
+Cada módulo cobre um nível diferente de abstração:
 **cifras didáticas → criptografia real de blocos → criptografia aplicada
 a arquivos.**
 
@@ -49,22 +49,22 @@ a arquivos.**
 
 A criptografia simétrica opera com uma única chave **K**:
 
--   Cifragem: `C = EK(P)`\
+-   Cifragem: `C = EK(P)`
 -   Decifragem: `P = DK(C)`
 
 Onde:
 
--   **P**: plaintext (mensagem original)\
--   **C**: ciphertext (mensagem cifrada)\
--   **EK()**: função de cifragem usando K\
+-   **P**: plaintext (mensagem original)
+-   **C**: ciphertext (mensagem cifrada)
+-   **EK()**: função de cifragem usando K
 -   **DK()**: função de decifragem usando K
 
 ### Propriedades desejáveis
 
--   Difusão e confusão\
--   Avalanche\
--   Resistência a ataques estatísticos\
--   Chaves suficientemente grandes\
+-   Difusão e confusão
+-   Avalanche
+-   Resistência a ataques estatísticos
+-   Chaves suficientemente grandes
 -   Modos de operação corretos
 
 ------------------------------------------------------------------------
@@ -103,14 +103,14 @@ simétrica mais utilizado no mundo.
 
 Características:
 
--   Blocos de **128 bits**\
--   Chaves de **128 / 192 / 256 bits**\
--   Seguro e eficiente\
+-   Blocos de **128 bits**
+-   Chaves de **128 / 192 / 256 bits**
+-   Seguro e eficiente
 -   Usado em TLS, VPNs, Wi-Fi (WPA2/WPA3), 5G, bancos, governo
 
 ## 3.1 Modos de Operação
 
-AES puro cifra apenas blocos fixos.\
+AES puro cifra apenas blocos fixos.
 Para trabalhar com dados maiores, são usados modos de operação:
 
 ### **ECB --- Electronic Codebook**
@@ -197,21 +197,21 @@ Para testes com arquivos grandes, recomenda-se:
 
 O aluno deve ser capaz de:
 
--   distinguir cifras de substituição, fluxo e blocos;\
--   entender por que ECB é inseguro;\
--   usar CBC corretamente com IV único;\
--   usar GCM para garantir confidencialidade + integridade;\
--   aplicar cifras em arquivos reais;\
+-   distinguir cifras de substituição, fluxo e blocos;
+-   entender por que ECB é inseguro;
+-   usar CBC corretamente com IV único;
+-   usar GCM para garantir confidencialidade + integridade;
+-   aplicar cifras em arquivos reais;
 -   compreender diferenças entre cifras clássicas e modernas.
 
 ------------------------------------------------------------------------
 
 # 🤝 8. Sugestões de Atividades
 
--   Implementar uma cifra própria baseada em deslocamentos.\
--   Comparar ECB vs CBC visualmente com uma imagem.\
--   Criptografar um arquivo e enviá-lo para outro aluno decifrar.\
--   Criar APIs simples que cifram mensagens usando AES.\
+-   Implementar uma cifra própria baseada em deslocamentos.
+-   Comparar ECB vs CBC visualmente com uma imagem.
+-   Criptografar um arquivo e enviá-lo para outro aluno decifrar.
+-   Criar APIs simples que cifram mensagens usando AES.
 -   Medir tempos de execução do AES com diferentes tamanhos de chave.
 
 ------------------------------------------------------------------------
