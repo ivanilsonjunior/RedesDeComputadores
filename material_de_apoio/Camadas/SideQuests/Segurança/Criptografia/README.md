@@ -1,158 +1,173 @@
-# 📦 Criptografia --- Material de Apoio
+# 🔐 Módulo de Criptografia --- Material de Apoio (IFRN)
 
-**Disciplina: Segurança / Redes / IoT**\
-Repositório com exemplos práticos de criptografia em Python, organizados
-por temas: **simétrica, assimétrica, hash/HMAC e assinaturas digitais**.
+Este diretório reúne exemplos práticos, código-fonte, exercícios e
+explicações didáticas sobre **Criptografia Simétrica**, **Criptografia
+Assimétrica**, **Assinatura Digital**, **Hashing**, **ICP-EDU**, e
+**PAdES**, organizados conforme as trilhas de Segurança e Redes do IFRN.
 
-------------------------------------------------------------------------
+O objetivo deste material é fornecer ao aluno um conjunto sólido de
+ferramentas e conceitos para compreender, testar e aplicar técnicas
+reais de criptografia utilizadas em sistemas modernos, incluindo:
 
-## 📁 Estrutura do Diretório
-
-    Criptografia
-    ├── Antigos/
-    ├── Assimétrica/
-    │   ├── Assinatura/
-    │   ├── Basico/
-    │   ├── ExemploHandShake/
-    │   └── README.md
-    ├── Hash/
-    │   ├── Basico/
-    │   └── README.md
-    ├── Simétrica/
-    │   ├── Arquivos/
-    │   ├── Basicos/
-    │   └── Blocos/
-    └── README.md   ← (este arquivo)
-
-A seguir, uma descrição clara de cada módulo.
+-   Comunicação segura\
+-   Armazenamento criptografado\
+-   Assinatura de mensagens e documentos\
+-   Certificados digitais ICP-Brasil / ICP-EDU\
+-   Hashes criptográficos e HMAC\
+-   Algoritmos clássicos e modernos
 
 ------------------------------------------------------------------------
 
-## 🔐 1. Criptografia Simétrica (`Simétrica/`)
+# 📁 Estrutura Geral do Diretório
 
-Implementações que utilizam **a mesma chave para cifrar e decifrar**.
-
-### 📂 `Simétrica/Arquivos/`
-
-Scripts para **encriptação e decriptação de arquivos** completos. -
-`encriptarArquivo.py`\
-- `decriptarArquivo.py`
-
-### 📂 `Simétrica/Basicos/cesar/`
-
-Implementação clássica do **Cifra de César**: - `cesar.py`
-
-### 📂 `Simétrica/Blocos/aes/`
-
-Exemplos com **AES** em diferentes modos de operação: - `aes_ecb.py` ---
-Electronic Codebook\
-- `aes_cbc.py` --- Cipher Block Chaining\
-- `aes_gnm.py` --- *Provavelmente AES-GCM, verifique o nome do arquivo*\
-- `README.md` --- explicação dos modos
+    Criptografia/
+    ├── README.md                ← este arquivo (visão geral)
+    ├── Simétrica/               ← cifragem com chave secreta
+    ├── Assimétrica/             ← RSA, certificados e ICP-EDU
+    └── Hash/                    ← funções de hash, HMAC e avalanche
 
 ------------------------------------------------------------------------
 
-## 🔑 2. Criptografia Assimétrica (`Assimétrica/`)
+# 🟦 1. Criptografia Simétrica (`Simétrica/`)
 
-Exemplos com **chaves públicas/privadas**, RSA e assinaturas digitais.
+Mecanismos que utilizam **uma única chave secreta** para cifrar e
+decifrar.
 
-### 📂 `Basico/`
+### Conteúdos disponíveis:
 
-Implementações fundamentais do RSA: - `gerarChavesRSA.py` --- gera par
-de chaves\
-- `cifrarRSA.py` --- cifra com chave pública\
-- `decifrarRSA.py` --- decifra com chave privada
+-   **Cifra de César (básica e avançada/cíclica OO)**\
+-   **AES (ECB, CBC, GCM)**\
+-   **Criptografia de arquivos (streaming e blocos)**\
+-   **Exemplos práticos com Python e OpenSSL**
 
-### 📂 `Assinatura/`
+### Pontos importantes abordados:
 
-Demonstração de **assinatura digital** com RSA: - `assinarMensagem.py`\
-- `verificarAssinatura.py`
+-   Modos de operação de blocos\
+-   Importância do IV e nonce\
+-   Segurança do AES GCM\
+-   Por que **ECB é inseguro**\
+-   Uso correto de chaves e padding
 
-### 📂 `ExemploHandShake/`
-
-Mini protocolo estilo "handshake TLS simplificado": - `client.py` ---
-cliente RSA\
-- `server.py` --- servidor RSA\
-- `gera_rsa_keys.py` --- gera chaves da demo\
-- `README.md` --- explicação do protocolo
-
-### 📄 README geral
-
-O arquivo principal dentro de `Assimétrica/` explica os conceitos
-básicos antes dos exemplos.
+📌 Pasta: `Criptografia/Simétrica/`
 
 ------------------------------------------------------------------------
 
-## 🧮 3. Hashes, HMAC e Integridade (`Hash/`)
+# 🟩 2. Criptografia Assimétrica (`Assimétrica/`)
 
-Exemplos práticos de funções hash, avalanche, salting e HMAC.
+Mecanismos que usam **um par de chaves**:\
+🔑 **chave privada** (mantida em segredo)\
+🔓 **chave pública** (distribuída livremente)
 
-### 📂 `Hash/Basico/`
+### Conteúdos disponíveis:
 
-Scripts incluídos: - `sha256.py` --- cálculo de SHA-256\
-- `hmac.py` --- HMAC com chave\
-- `senhaSalt.py` --- salting de senhas\
-- `avalanche.py` --- demonstração do efeito avalanche\
-- `arquivo.py` --- hash de arquivos\
-- `dados.txt` --- arquivo de teste
+-   Geração de chaves RSA\
+-   Cifra e decifra com RSA\
+-   Assinatura e verificação\
+-   Handshake simplificado cliente/servidor\
+-   **Integração completa com ICP-EDU**\
+-   **Assinatura digital real de PDF (PAdES)**
 
-### 📄 README
+### Novidades importantes:
 
-Explicação geral do módulo de hash.
+-   Nova pasta `ICP-EDU/`\
+-   Scripts Python para assinar/verificar documentos\
+-   Scripts OpenSSL\
+-   Integração com certificados reais da RNP\
+-   Uso do PyHanko para assinar PDFs "à moda SEI"
 
-------------------------------------------------------------------------
-
-## 📜 4. Antigos (`Antigos/`)
-
-Versões anteriores dos scripts, mantidas por histórico e comparação: -
-`Completo.py` - `Encrptar.py` - `Decriptar.py` - `GerarChave.py`
-
-------------------------------------------------------------------------
-
-## ▶️ Como Executar
-
-Requer **Python 3** + bibliotecas padrão (a maioria sem dependências
-externas).\
-Alguns scripts podem exigir `pycryptodome`:
-
-``` bash
-pip install pycryptodome
-```
-
-Para executar qualquer arquivo:
-
-``` bash
-python3 nome_do_script.py
-```
+📌 Pasta: `Criptografia/Assimétrica/`
 
 ------------------------------------------------------------------------
 
-## 🎯 Objetivo Didático
+# 🟥 3. Funções Hash e HMAC (`Hash/`)
 
-Este conjunto de códigos serve como base prática para:
+Funções de hash criptográficas são usadas para:
 
--   Aulas de Segurança em IoT\
--   Demonstrações de cifragem em sistemas embarcados / transmissões
-    inseguras\
--   Explicações sobre modos de operação do AES\
--   Visualização do efeito avalanche e hashing de arquivos\
--   Demonstrações completas de handshake assimétrico
+-   Integridade de dados\
+-   Armazenamento seguro de senhas\
+-   Autenticação (HMAC)\
+-   Assinatura e verificação de documentos\
+-   Detecção de alterações (efeito avalanche)
 
-------------------------------------------------------------------------
+### Conteúdos disponíveis:
 
-## 🤝 Contribuições
+-   SHA‑256 (exemplo didático)\
+-   HMAC\
+-   Avalanche (ver como pequenas mudanças alteram o hash)\
+-   Hash de arquivos
 
-Sinta-se livre para:
-
--   Abrir PRs com melhorias\
--   Adicionar novos exemplos (ex.: ECC, ChaCha20, Argon2...)\
--   Corrigir nomenclaturas e comentários\
--   Propor exercícios práticos para os alunos
+📌 Pasta: `Criptografia/Hash/`
 
 ------------------------------------------------------------------------
 
-## 📄 Licença
+# 🏛️ 4. Integração com ICP-EDU / ICP-Brasil (novidade)
 
-Material educacional produzido para fins didáticos nas disciplinas do
-IFRN.\
-Uso livre com atribuição.
+O aluno aprende a usar um **certificado real**, emitido pela:
+
+🔗 https://pessoal.icpedu.rnp.br/home
+
+Inclui:
+
+-   Conversão de `.p12` → `.pem`\
+-   Assinatura digital de arquivos\
+-   Assinatura **PAdES** de PDFs\
+-   Validação com Adobe Reader\
+-   Scripts Python e OpenSSL
+
+📌 Pasta: `Criptografia/Assimétrica/ICP-EDU/`
+
+------------------------------------------------------------------------
+
+# 📘 5. Material para Salas de Aula
+
+Este repositório foi otimizado para atividades práticas do IFRN,
+incluindo:
+
+-   Projetos de laboratório\
+-   Exercícios de segurança e redes\
+-   Aulas demonstrativas\
+-   Integração com conteúdos de certificação\
+-   Estudos avançados de criptografia aplicada
+
+------------------------------------------------------------------------
+
+# 🧪 6. Requisitos recomendados
+
+### Para executar os códigos:
+
+    Python 3.10+
+    pip install cryptography pyhanko
+    sudo apt install openssl
+
+------------------------------------------------------------------------
+
+# 🎓 7. Objetivo Educacional
+
+Ao final deste módulo, o aluno deve ser capaz de:
+
+-   Compreender diferenças entre simétrica / assimétrica / hashing\
+-   Usar AES da forma correta\
+-   Gerar e usar chaves RSA\
+-   Assinar e verificar mensagens\
+-   Emitir certificados ICP-EDU\
+-   Assinar PDFs no padrão PAdES\
+-   Validar assinaturas com PyHanko e Adobe Reader
+
+------------------------------------------------------------------------
+
+# 🤝 8. Contribuição
+
+Sinta-se livre para enviar **pull requests** com melhorias, novos
+algoritmos, exemplos e correções.
+
+------------------------------------------------------------------------
+
+# 🏁 9. Licença
+
+Este material pode ser utilizado livremente para fins educacionais.
+
+------------------------------------------------------------------------
+
+Material criado com foco em qualidade didática e alinhado com
+disciplinas de **Redes**, **Segurança da Informação**, **IoT** e
+**Sistemas Embarcados** do IFRN.
