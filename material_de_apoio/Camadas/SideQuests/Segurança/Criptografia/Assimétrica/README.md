@@ -190,7 +190,7 @@ Esta é uma das partes mais importantes e práticas do módulo.
 
 A **ICP-EDU** é uma infraestrutura de chaves públicas voltada à comunidade acadêmica, vinculada à RNP, permitindo que alunos, docentes e técnicos emitam **certificados digitais pessoais** compatíveis com a ICP-Brasil.
 
--   Portal: https://pessoal.icpedu.rnp.br/home\
+-   Portal: https://pessoal.icpedu.rnp.br/home
 -   Formato típico recebido: `.p12` (contendo chave privada, certificado e cadeia)
 
 ### 7.2 Conteúdos desta pasta

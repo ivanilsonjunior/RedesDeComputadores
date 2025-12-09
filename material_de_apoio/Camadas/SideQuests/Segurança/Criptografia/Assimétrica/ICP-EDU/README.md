@@ -1,27 +1,19 @@
 # 🏛️ ICP-EDU --- Certificados Digitais e Assinatura de Documentos
 
-Esta pasta contém exemplos práticos de uso da **ICP-EDU**
-(Infraestrutura de Chaves Públicas da Comunidade Acadêmica Federada da
-RNP) para:
+Esta pasta contém exemplos práticos de uso da **ICP-EDU** (Infraestrutura de Chaves Públicas da Comunidade Acadêmica Federada da RNP) para:
 
 -   emitir e utilizar **certificados digitais pessoais**;
 -   assinar digitalmente **arquivos genéricos** (ex.: `.txt`);
--   assinar digitalmente **PDFs** no padrão **PAdES** (via subpasta
-    `PDF/`);
+-   assinar digitalmente **PDFs** no padrão **PAdES** (via subpasta `PDF/`);
 -   verificar assinaturas usando **Python**, **OpenSSL** e **PyHanko**.
 
-O objetivo é aproximar o aluno de um cenário **real de PKI**, muito
-próximo do que é utilizado em órgãos públicos, sistemas acadêmicos e
-governo eletrônico.
+O objetivo é aproximar o aluno de um cenário **real de PKI**, muito próximo do que é utilizado em órgãos públicos, sistemas acadêmicos e governo eletrônico.
 
 ------------------------------------------------------------------------
 
 ## 1. O que é a ICP-EDU?
 
-A **ICP-EDU** é uma infraestrutura de chaves públicas voltada à
-comunidade acadêmica brasileira, mantida pela RNP.\
-Ela permite que **alunos, professores e técnicos** emitam **certificados
-digitais pessoais**, normalmente vinculados ao e-mail institucional.
+A **ICP-EDU** é uma infraestrutura de chaves públicas voltada à comunidade acadêmica brasileira, mantida pela RNP. Ela permite que **alunos, professores e técnicos** emitam **certificados digitais pessoais**, normalmente vinculados ao e-mail institucional.
 
 Características principais:
 
@@ -30,7 +22,7 @@ Características principais:
 -   permite autenticação e assinatura digital;
 -   gratuito para a comunidade acadêmica vinculada.
 
-Portal de emissão:\
+Portal de emissão:
 ➡️ `https://pessoal.icpedu.rnp.br/home`
 
 ------------------------------------------------------------------------
@@ -103,8 +95,7 @@ openssl pkcs12 -in meucertificado.p12 -out chave_privada.pem -nocerts -nodes
 ```
 
 -   `-nocerts`: não extrai certificados, apenas a chave;
--   `-nodes`: não recriptografa a chave privada ao salvar (cuidado com
-    segurança!).
+-   `-nodes`: não recriptografa a chave privada ao salvar (cuidado com segurança!).
 
 ### 5.2 Extrair certificado público
 
@@ -130,9 +121,8 @@ Esses arquivos serão usados pelos scripts em Python e OpenSSL.
 
 ### 6.1 Script `assinar_documento.py`
 
-Função principal:\
-Assinar o conteúdo de um arquivo (por exemplo, `documento.txt`) usando a
-**chave privada** ICP-EDU em formato PEM.
+Função principal:
+Assinar o conteúdo de um arquivo (por exemplo, `documento.txt`) usando a **chave privada** ICP-EDU em formato PEM.
 
 Uso típico:
 
@@ -186,8 +176,7 @@ Fluxo interno:
 
 ## 8. Assinatura com OpenSSL (scripts `.sh`)
 
-Além dos scripts Python, existem também scripts Bash que usam **OpenSSL
-diretamente**:
+Além dos scripts Python, existem também scripts Bash que usam **OpenSSL diretamente**:
 
 ### 8.1 `assinar_documento_openssl.sh`
 
@@ -232,15 +221,13 @@ internamente**, no padrão PAdES, utilizando a biblioteca **PyHanko**.
 
 Conteúdos principais:
 
--   `assinar_pdf.py` --- assina `documento.pdf` gerando
-    `documento_assinado.pdf`;
+-   `assinar_pdf.py` --- assina `documento.pdf` gerando `documento_assinado.pdf`;
 -   `verificar_pdf.py` --- valida assinaturas internas do PDF;
 -   `config.yaml` --- configuração de assinante para CLI `pyhanko sign`;
 -   `FluxoAssinatura.png` --- diagrama do fluxo completo;
 -   `README.md` --- explicação detalhada focada apenas em PDFs.
 
-Recomenda-se consultar o `README.md` da pasta `PDF/` para detalhes
-específicos sobre PAdES.
+Recomenda-se consultar o `README.md` da pasta `PDF/` para detalhes específicos sobre PAdES.
 
 ------------------------------------------------------------------------
 
@@ -256,50 +243,39 @@ sudo apt install openssl
 
 Em distribuições Linux, pode ser necessário:
 
--   instalar certificados raiz da ICP-Brasil/ICP-EDU para validações
-    avançadas;
--   configurar o repositório de certificados confiáveis (opcional,
-    dependendo do uso).
+-   instalar certificados raiz da ICP-Brasil/ICP-EDU para validações avançadas;
+-   configurar o repositório de certificados confiáveis (opcional, dependendo do uso).
 
 ------------------------------------------------------------------------
 
 ## 11. Objetivos Educacionais
 
-Ao concluir as atividades relacionadas a esta pasta, o aluno deverá ser
-capaz de:
+Ao concluir as atividades relacionadas a esta pasta, o aluno deverá ser capaz de:
 
--   entender a relação entre **certificados digitais**, chaves
-    públicas/privadas e identidade;
+-   entender a relação entre **certificados digitais**, chaves públicas/privadas e identidade;
 -   emitir e utilizar um certificado pessoal na **ICP-EDU**;
 -   assinar e verificar digitalmente arquivos genéricos;
--   compreender a estrutura de um arquivo `.p12` e sua conversão para
-    `.pem`;
--   utilizar ferramentas de baixo nível (**OpenSSL**) e alto nível
-    (**Python + cryptography + PyHanko**);
+-   compreender a estrutura de um arquivo `.p12` e sua conversão para `.pem`;
+-   utilizar ferramentas de baixo nível (**OpenSSL**) e alto nível (**Python + cryptography + PyHanko**);
 -   aplicar os conceitos em cenários reais:
-    -   envio de arquivos assinados;\
-    -   relatórios com assinatura digital;\
+    -   envio de arquivos assinados;
+    -   relatórios com assinatura digital;
     -   PDFs com validade técnica e jurídica.
 
 ------------------------------------------------------------------------
 
 ## 12. Sugestão de Atividade Prática
 
-1.  Emitir um certificado digital pessoal na ICP-EDU.\
-2.  Converter o `.p12` em `chave_privada.pem` e
-    `certificado_publico.pem`.\
-3.  Criar um arquivo `relatorio.txt` com um pequeno texto.\
-4.  Assinar o arquivo com `assinar_documento.py`.\
-5.  Verificar a assinatura com `verificar_assinatura.py`.\
-6.  Criar um `relatorio.pdf` e assiná-lo usando os scripts da pasta
-    `PDF/`.\
+1.  Emitir um certificado digital pessoal na ICP-EDU.
+2.  Converter o `.p12` em `chave_privada.pem` e `certificado_publico.pem`.
+3.  Criar um arquivo `relatorio.txt` com um pequeno texto.
+4.  Assinar o arquivo com `assinar_documento.py`.
+5.  Verificar a assinatura com `verificar_assinatura.py`.
+6.  Criar um `relatorio.pdf` e assiná-lo usando os scripts da pasta `PDF/`.
 7.  Verificar a assinatura do PDF com:
-    -   `verificar_pdf.py`;\
+    -   `verificar_pdf.py`;
     -   Adobe Reader (verificando a cadeia de confiança).
 
 ------------------------------------------------------------------------
 
-Este módulo integra **conceitos teóricos de criptografia assimétrica**
-com **casos reais de uso de certificados digitais** na comunidade
-acadêmica, aproximando a disciplina de Segurança/Redes do contexto
-profissional e governamental.
+Este módulo integra **conceitos teóricos de criptografia assimétrica** com **casos reais de uso de certificados digitais** na comunidade acadêmica, aproximando a disciplina de Segurança/Redes do contexto profissional e governamental.

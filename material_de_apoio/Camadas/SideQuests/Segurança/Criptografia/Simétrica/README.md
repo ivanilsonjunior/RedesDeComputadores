@@ -1,9 +1,7 @@
 # 🔐 Criptografia Simétrica --- Material de Apoio
 
-A criptografia simétrica é um dos pilares fundamentais da segurança da
-informação.\
-Ela utiliza **uma única chave secreta** para cifrar e decifrar dados,
-oferecendo alto desempenho e sendo amplamente aplicada em:
+A criptografia simétrica é um dos pilares fundamentais da segurança da informação.
+Ela utiliza **uma única chave secreta** para cifrar e decifrar dados, oferecendo alto desempenho e sendo amplamente aplicada em:
 
 -   redes de computadores (TLS, VPNs, WPA2/WPA3);
 -   armazenamento seguro (criptografia de disco);
@@ -40,8 +38,7 @@ AES.
         └── README.md
 
 Cada módulo cobre um nível diferente de abstração:
-**cifras didáticas → criptografia real de blocos → criptografia aplicada
-a arquivos.**
+**cifras didáticas → criptografia real de blocos → criptografia aplicada a arquivos.**
 
 ------------------------------------------------------------------------
 

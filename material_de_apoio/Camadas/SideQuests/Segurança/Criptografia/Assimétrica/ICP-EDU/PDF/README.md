@@ -7,9 +7,9 @@ assinados digitalmente em órgãos públicos e no SEI.
 
 Os arquivos aqui permitem que o aluno:
 
-✔ Assine um PDF com sua **chave privada** ICP‑EDU\
-✔ Gere um **PDF assinado internamente**, validável no Adobe Reader\
-✔ Verifique assinaturas via PyHanko\
+✔ Assine um PDF com sua **chave privada** ICP‑EDU
+✔ Gere um **PDF assinado internamente**, validável no Adobe Reader
+✔ Verifique assinaturas via PyHanko
 ✔ Entenda como funciona **PAdES**, **PKI**, **ICP‑EDU** e assinaturas de
 documentos
 
@@ -19,8 +19,7 @@ documentos
 
 ### 🔐 Certificado ICP‑EDU (pessoal)
 
-O aluno deve emitir seu certificado em:\
-https://pessoal.icpedu.rnp.br/home
+O aluno deve emitir seu certificado em: https://pessoal.icpedu.rnp.br/home
 
 Ele será baixado no formato:
 
@@ -91,8 +90,8 @@ Reader.
 
 O script exibirá:
 
--   lista de campos de assinatura\
--   resultado (VÁLIDA / INVÁLIDA)\
+-   lista de campos de assinatura
+-   resultado (VÁLIDA / INVÁLIDA)
 -   relatório resumido da validação
 
 ------------------------------------------------------------------------
@@ -102,9 +101,9 @@ O script exibirá:
 PAdES (PDF Advanced Electronic Signatures) é o padrão europeu para
 assinatura digital de PDFs, baseado em:
 
--   PKI (infraestrutura de chaves públicas)\
--   Certificados X.509\
--   Assinaturas CMS/CAdES\
+-   PKI (infraestrutura de chaves públicas)
+-   Certificados X.509
+-   Assinaturas CMS/CAdES
 -   Registro interno dentro do PDF
 
 O Adobe Reader reconhecerá a assinatura como válida **desde que o
@@ -129,19 +128,18 @@ Validação:
 
 # 🎓 8. Exercício sugerido
 
-1.  Emitir seu certificado ICP‑EDU\
-2.  Converter para PEM\
-3.  Criar um PDF simples\
-4.  Assiná‑lo usando `assinar_pdf.py`\
-5.  Validar com `verificar_pdf.py` e com o Adobe Reader\
+1.  Emitir seu certificado ICP‑EDU
+2.  Converter para PEM
+3.  Criar um PDF simples
+4.  Assiná‑lo usando `assinar_pdf.py`
+5.  Validar com `verificar_pdf.py` e com o Adobe Reader
 6.  Subir o PDF assinado no repositório da disciplina
 
 ------------------------------------------------------------------------
 
 # 🏁 9. Conclusão
 
-Este módulo fornece uma experiência **real e profissional** com
-assinatura digital:
+Este módulo fornece uma experiência **real e profissional** com assinatura digital:
 
 -   compatível com padrões ICP‑Brasil\
 -   validável em ferramentas oficiais\
