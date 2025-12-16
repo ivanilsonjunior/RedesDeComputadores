@@ -21,7 +21,7 @@ laboratórios, cursos e estudos autônomos**.
 -   📖 **[INDEX.md --- Índice Detalhado](INDEX.md)**\
 -   🏗️ **[PROJECT_STRUCTURE.md --- Estrutura Oficial do
     Projeto](PROJECT_STRUCTURE.md)**\
--   📝 **Exercícios:** `exercicios/`\
+-   📝 **Exercícios:** `material_de_apoio/`\
 -   🔐 **Criptografia & Segurança:**
     `material_de_apoio/Camadas/SideQuests/Segurança/Criptografia/`
 
@@ -36,7 +36,7 @@ A organização segue a lógica didática clássica das disciplinas de Redes:
     ├── 02_modelos_de_comunicacao/
     ├── 03_camadas_aplicacao/
     ├── 04_camadas_transporte/
-    ├── 05_camadas_de_rede/
+    ├── 05_camadas_rede/
     ├── 06_componentes_fisicos/
     │
     ├── exercicios/
@@ -209,7 +209,3 @@ Este material é distribuído sob a licença **GPL-3.0**.\
 Consulte o arquivo `LICENSE` para detalhes.
 
 ------------------------------------------------------------------------
-
-# 🧭 Última Atualização
-
-*(preencher conforme commits futuros)*

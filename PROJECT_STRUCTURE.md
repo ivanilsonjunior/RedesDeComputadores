@@ -27,7 +27,7 @@ disciplinas de:
     ├── 02_modelos_de_comunicacao/
     ├── 03_camadas_aplicacao/
     ├── 04_camadas_transporte/
-    ├── 05_camadas_de_rede/
+    ├── 05_camadas_rede/
     ├── 06_componentes_fisicos/
     │
     ├── exercicios/
