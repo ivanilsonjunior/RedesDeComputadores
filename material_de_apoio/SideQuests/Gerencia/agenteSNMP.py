@@ -1,3 +1,7 @@
+#
+# Agente SNMP - Lembrar de executar:
+# $ pip install psutil pysnmp
+#
 import psutil
 from pysnmp.entity import engine, config
 from pysnmp.carrier.asyncio.dgram import udp
