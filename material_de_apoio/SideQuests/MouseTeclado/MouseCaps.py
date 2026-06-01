@@ -8,15 +8,18 @@ kb = keyboard.Controller()
 last_right_click_time = 0
 DOUBLE_CLICK_INTERVAL = 0.3  # segundos
 
-# Estado lógico do CapsLock (não temos uma API para ler o estado real)
+# Estado lógico do CapsLock
 caps_on = False
 
+# Referências globais dos listeners
+mouse_listener = None
+keyboard_listener = None
+
+
 def toggle_capslock():
-    """
-    Emite um evento de pressionar a tecla CapsLock.
-    """
     kb.press(keyboard.Key.caps_lock)
     kb.release(keyboard.Key.caps_lock)
+
 
 def on_click(x, y, button, pressed):
     global last_right_click_time, caps_on
@@ -24,7 +27,7 @@ def on_click(x, y, button, pressed):
     if button == mouse.Button.right and pressed:
         current_time = time.time()
 
-        # Verifica se é double click
+        # Detecta duplo clique
         if (current_time - last_right_click_time) <= DOUBLE_CLICK_INTERVAL:
             caps_on = not caps_on
             toggle_capslock()
@@ -33,8 +36,27 @@ def on_click(x, y, button, pressed):
         last_right_click_time = current_time
 
 
-# Listener do mouse
-with mouse.Listener(on_click=on_click) as listener:
-    print("Programa iniciado. Dê duplo clique com o botão direito para alternar CapsLock.")
-    print("Pressione Ctrl+C no terminal para encerrar.")
-    listener.join()
+def on_press(key):
+    global mouse_listener, keyboard_listener
+
+    if key == keyboard.Key.esc:
+        print("\nEncerrando programa...")
+
+        mouse_listener.stop()
+        keyboard_listener.stop()
+
+        return False
+
+
+mouse_listener = mouse.Listener(on_click=on_click)
+keyboard_listener = keyboard.Listener(on_press=on_press)
+
+mouse_listener.start()
+keyboard_listener.start()
+
+print("Programa iniciado.")
+print("Dê duplo clique com o botão direito para alternar o CapsLock.")
+print("Pressione ESC para sair.")
+
+mouse_listener.join()
+keyboard_listener.join()
