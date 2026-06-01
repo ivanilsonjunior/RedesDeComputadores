@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Simula a digitação das teclas W, A, S, D com base no movimento do mouse.
+Pressione ESC para encerrar.
 """
+
 from pynput import mouse, keyboard
 import time
 
@@ -17,18 +19,18 @@ last_emit = time.time()
 # Posição anterior do mouse
 last_pos = mouse_ctrl.position
 
+# Listeners globais
+mouse_listener = None
+keyboard_listener = None
+
+
 def emit_key(key_char):
-    """
-    Emite uma tecla como se fosse digitada.
-    """
     kb.press(key_char)
     kb.release(key_char)
     print(f"Tecla emitida: {key_char}")
 
+
 def check_movement():
-    """
-    Compara a posição atual com a anterior e decide se emite W, A, S ou D.
-    """
     global last_pos, last_emit
 
     current_pos = mouse_ctrl.position
@@ -39,6 +41,7 @@ def check_movement():
 
     # Evita spam exagerado
     if now - last_emit < COOLDOWN:
+        last_pos = current_pos
         return
 
     # Eixo vertical (W / S)
@@ -63,13 +66,27 @@ def check_movement():
 
 
 def on_move(x, y):
-    """
-    Callback acionado ao mover o mouse.
-    """
     check_movement()
 
 
-with mouse.Listener(on_move=on_move) as listener:
-    print("Movimente o mouse para gerar WASD automaticamente.")
-    print("Pressione Ctrl+C no terminal para sair.")
-    listener.join()
+def on_press(key):
+    global mouse_listener, keyboard_listener
+
+    if key == keyboard.Key.esc:
+        print("\nEncerrando programa...")
+        mouse_listener.stop()
+        keyboard_listener.stop()
+        return False
+
+
+mouse_listener = mouse.Listener(on_move=on_move)
+keyboard_listener = keyboard.Listener(on_press=on_press)
+
+mouse_listener.start()
+keyboard_listener.start()
+
+print("Movimente o mouse para gerar WASD automaticamente.")
+print("Pressione ESC para sair.")
+
+mouse_listener.join()
+keyboard_listener.join()
