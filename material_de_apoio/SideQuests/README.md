@@ -34,6 +34,7 @@ Dependendo do SideQuest, podem ser abordados:
 - Protocolos simples de aplicação
 - Controle remoto e automação
 - Integração entre redes e aplicações gráficas
+- Coleta de dados de sensores e visualização local
 
 > ⚠️ **Observação:** cada SideQuest possui seu próprio `README.md` explicando os conceitos específicos utilizados.
 
@@ -54,6 +55,9 @@ Exemplo de estrutura:
 
 ```
 SideQuests/
+├───BitDogLab
+│   ├───ComunicaçãoSerial
+│   └───MedidorDeSom
 ├───LocalizadorComputadores
 ├───MouseTeclado
 ├───Segurança

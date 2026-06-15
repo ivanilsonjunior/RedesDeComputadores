@@ -9,6 +9,9 @@ A ideia principal é separar o sistema em dois programas:
 - `ComunicaçãoSerial/Computador.py`: roda no computador, usando Python e a
   biblioteca `pyserial`.
 
+Esta pasta também possui o exemplo `MedidorDeSom`, que usa o microfone da
+BitDogLab e a matriz de LEDs 5x5 para criar um medidor visual de volume.
+
 O computador envia comandos de texto pela serial. A BitDogLab recebe esses
 comandos, interpreta o texto e liga ou desliga os LEDs conectados aos pinos
 GPIO `11`, `12` e `13`.
@@ -21,6 +24,8 @@ GPIO `11`, `12` e `13`.
 - Controlar saídas digitais da BitDogLab usando `machine.Pin`.
 - Criar um protocolo simples baseado em comandos de texto.
 - Consultar o estado atual de cada LED/pino.
+- Ler sensores analógicos da placa, como o microfone.
+- Exibir informações físicas usando a matriz de LEDs da BitDogLab.
 
 ## Arquivos
 
@@ -49,6 +54,17 @@ Ele faz as seguintes tarefas:
 - mostra um menu interativo;
 - envia comandos para a placa;
 - mostra as respostas enviadas pela BitDogLab.
+
+### `MedidorDeSom/BitDogSom.py`
+
+Este arquivo deve ser enviado para a BitDogLab.
+
+Ele faz as seguintes tarefas:
+
+- lê o microfone no GPIO `28`;
+- calcula uma estimativa de volume;
+- acende a matriz NeoPixel 5x5 no GPIO `7`;
+- mostra no terminal serial a amplitude e o volume em porcentagem.
 
 ## Protocolo usado
 
