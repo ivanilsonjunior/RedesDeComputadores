@@ -45,6 +45,8 @@ Materiais sobre:
 - UDP
 - Controle de congestionamento
 - Multiplexação
+- Trilha de programação de sockets (4 unidades): API completa, servidores
+  concorrentes com threads/`asyncio`, protocolos binários com `struct`
 
 ---
 

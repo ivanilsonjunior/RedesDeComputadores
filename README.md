@@ -106,7 +106,10 @@ alunos\
 -   UDP\
 -   TCP\
 -   Controle de congestionamento\
--   Multiplexação
+-   Multiplexação\
+-   Trilha completa de programação de sockets: API BSD Sockets,
+    servidores concorrentes (threads/asyncio) e protocolos binários
+    com `struct`
 
 ## 🟥 5. Camada de Rede --- `05_camadas_rede/`
 
