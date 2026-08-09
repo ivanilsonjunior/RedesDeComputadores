@@ -91,6 +91,13 @@ Física
 
 ---
 
+# 📎 Material Complementar
+
+- [`material_de_apoio/Camadas/Aplicação/`](../material_de_apoio/Camadas/Aplicação/) — servidor de comandos via broadcast UDP.
+- [`material_de_apoio/Camadas/Transporte/Sockets/TCP/ServidorWeb/`](../material_de_apoio/Camadas/Transporte/Sockets/TCP/ServidorWeb/) — o "lado servidor" do `http_client_python3.py` desta pasta: um servidor HTTP artesanal.
+
+---
+
 # DIATINF — IFRN
 
 Material educacional para Redes de Computadores e ADS.

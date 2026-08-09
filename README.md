@@ -22,8 +22,10 @@ laboratórios, cursos e estudos autônomos**.
 -   🏗️ **[PROJECT_STRUCTURE.md --- Estrutura Oficial do
     Projeto](PROJECT_STRUCTURE.md)**\
 -   📝 **Exercícios:** `material_de_apoio/`\
+-   🧩 **Sockets avançados (TCP/UDP, Bluetooth, broadcast):**
+    `material_de_apoio/Camadas/`\
 -   🔐 **Criptografia & Segurança:**
-    `material_de_apoio/Camadas/SideQuests/Segurança/Criptografia/`
+    `material_de_apoio/SideQuests/Segurança/Criptografia/`
 
 ------------------------------------------------------------------------
 
@@ -42,10 +44,14 @@ A organização segue a lógica didática clássica das disciplinas de Redes:
     ├── exercicios/
     │
     ├── material_de_apoio/
-    │   ├── Camadas/
-    │   │   ├── SideQuests/
-    │   │   │   └── Segurança/
-    │   │   │       └── Criptografia/
+    │   ├── Camadas/                  ← sockets avançados por camada OSI
+    │   │   ├── Aplicação/
+    │   │   ├── Enlace/
+    │   │   └── Transporte/Sockets/
+    │   └── SideQuests/
+    │       ├── Segurança/
+    │       │   └── Criptografia/
+    │       └── (BitDogLab, WebScraping, MouseTeclado, ...)
     │
     ├── README.md
     ├── SUMMARY.md

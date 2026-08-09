@@ -175,6 +175,12 @@ Altere os scripts para:
 
 ---
 
+# 📎 Material Complementar
+
+- [`material_de_apoio/Camadas/Enlace/`](../material_de_apoio/Camadas/Enlace/) — descoberta de dispositivos Bluetooth e um par broadcast UDP mais simples que os scripts deste módulo.
+
+---
+
 # 📦 Arquivos Incluídos no Módulo
 
 - conceitos_componentes_fisicos.md  

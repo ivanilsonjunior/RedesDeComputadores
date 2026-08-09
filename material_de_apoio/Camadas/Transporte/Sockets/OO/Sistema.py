@@ -56,10 +56,10 @@ class Sistema:
         match cmd.split( )[0]:
             case "/help":
                 return "Ajuda Requisitada: \n\t /mem para ver a memoria\n\t /off para desligar\n\t /hd espaço em disco\n\t /google abrir o navegador"
-            case "/hd":
+            case "/mem":
                 resposta = psutil.virtual_memory()
                 return str(resposta)
-            case "/mem":
+            case "/hd":
                 resposta = psutil.disk_usage("c:\\")
                 return str(resposta)
             case "/google":

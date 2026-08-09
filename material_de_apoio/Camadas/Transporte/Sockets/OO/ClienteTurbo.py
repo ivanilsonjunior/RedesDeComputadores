@@ -8,8 +8,9 @@ class Cliente:
     servidores = {}
 
     def __init__(self) -> None:
-        self.publicador = Thread(target=self.escutarServidores())
-        self.publicador.setblocking(False)
+        # target=self.escutarServidores (sem parênteses!) para passar a
+        # referência do método, não o resultado de chamá-lo agora.
+        self.publicador = Thread(target=self.escutarServidores, daemon=True)
         self.publicador.start()
         print("Executador Iniciado...")
 

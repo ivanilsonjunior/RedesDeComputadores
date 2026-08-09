@@ -13,9 +13,10 @@ class Servidor:
     
     def ligar(self) -> None:
         self.soc.listen()
-        publicador = Thread(target=self.publicarCoiso())
+        # target=self.publicarCoiso (sem parênteses!) para passar a
+        # referência do método, não o resultado de chamá-lo agora.
+        publicador = Thread(target=self.publicarCoiso, daemon=True)
         publicador.start()
-        publicador.setblocking(False)
         while True:
             cliente, address = self.soc.accept()
             msg = cliente.recv(128).decode("utf-8")

@@ -34,9 +34,13 @@ disciplinas de:
     │
     ├── material_de_apoio/
     │   ├── Camadas/
-    │   │   ├── SideQuests/
-    │   │   │   └── Segurança/
-    │   │   │       └── Criptografia/
+    │   │   ├── Aplicação/
+    │   │   ├── Enlace/
+    │   │   └── Transporte/Sockets/
+    │   └── SideQuests/
+    │       ├── Segurança/
+    │       │   └── Criptografia/
+    │       └── (BitDogLab, WebScraping, MouseTeclado, ...)
     │
     ├── README.md
     ├── SUMMARY.md
@@ -70,6 +74,11 @@ Armazena conteúdos complementares usados em aula:
 -   aprofundamentos\
 -   conteúdos de segurança (criptografia)\
 -   exemplos para outras disciplinas
+
+Duas subpastas principais:
+
+-   `Camadas/` → exemplos de sockets mais avançados que os dos módulos numerados, organizados por camada OSI (Aplicação, Enlace, Transporte) — ver README próprio.
+-   `SideQuests/` → desafios independentes (Segurança/Criptografia, BitDogLab, WebScraping, etc.), cada um com seu README.
 
 ------------------------------------------------------------------------
 

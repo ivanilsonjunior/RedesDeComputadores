@@ -71,8 +71,16 @@ Materiais sobre:
 
 📁 `material_de_apoio/`
 
-### 2.1 Segurança → Criptografia
-📁 `material_de_apoio/Camadas/SideQuests/Segurança/Criptografia/`
+### 2.1 Camadas → Sockets Avançados
+📁 `material_de_apoio/Camadas/`
+
+Exemplos de sockets mais elaborados que os dos módulos numerados, organizados por camada OSI:
+- **Aplicação** — servidor de comandos remoto via broadcast UDP
+- **Enlace** — descoberta Bluetooth, broadcast UDP básico
+- **Transporte/Sockets** — sistema cliente-servidor com autodescoberta (OO), servidor HTTP artesanal, jogo em UDP, classificador de imagens via TCP
+
+### 2.2 Segurança → Criptografia
+📁 `material_de_apoio/SideQuests/Segurança/Criptografia/`
 
 Organizado em:
 - **Simétrica** (AES, CBC, ECB, César)

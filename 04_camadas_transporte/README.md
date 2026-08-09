@@ -113,5 +113,14 @@ NOTAS PARA PROFESSORES
 
 --------------------------------------------------------------------
 
+MATERIAL COMPLEMENTAR
+
+Para exemplos de sockets TCP/UDP mais elaborados (sistema cliente-servidor
+com autodescoberta, servidor HTTP artesanal, jogo em UDP, classificador de
+imagens via TCP), ver:
+    ../material_de_apoio/Camadas/Transporte/Sockets/
+
+--------------------------------------------------------------------
+
 DIATINF — IFRN
 Material educacional para cursos de Redes de Computadores e ADS.

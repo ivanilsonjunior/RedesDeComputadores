@@ -12,8 +12,12 @@ Este sumário apresenta os principais conteúdos e diretórios do repositório.
 - [05 - Camada de Rede](05_camadas_rede/)
 - [06 - Componentes Físicos](06_componentes_fisicos/)
 - [material_de_apoio/](material_de_apoio/)
-  - [SideQuests → Segurança](material_de_apoio/Camadas/SideQuests/Segurança/)
-    - [Criptografia](material_de_apoio/Camadas/SideQuests/Segurança/Criptografia/)
+  - [Camadas → Sockets avançados](material_de_apoio/Camadas/)
+    - [Aplicação](material_de_apoio/Camadas/Aplicação/)
+    - [Enlace (Bluetooth, Broadcast)](material_de_apoio/Camadas/Enlace/)
+    - [Transporte/Sockets (OO, TCP, UDP)](material_de_apoio/Camadas/Transporte/Sockets/)
+  - [SideQuests → Segurança](material_de_apoio/SideQuests/Segurança/)
+    - [Criptografia](material_de_apoio/SideQuests/Segurança/Criptografia/)
       - Simétrica
       - Assimétrica
       - Hash/HMAC
