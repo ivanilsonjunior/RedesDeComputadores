@@ -49,7 +49,7 @@ Materiais sobre:
 ---
 
 ## 1.5 Camada de Rede
-📁 `05_camadas_de_rede/`
+📁 `05_camadas_rede/`
 - IPv4
 - IPv6
 - ARP/RARP

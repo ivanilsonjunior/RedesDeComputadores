@@ -1,7 +1,9 @@
 
 # Topologias de Rede
+Material didático — Redes de Computadores / ADS
+DIATINF — IFRN
 
-As topologias definem como os dispositivos estão organizados fisicamente ou logicamente.
+**Topologia física** é como os cabos/dispositivos estão dispostos no mundo real; **topologia lógica** é como os dados efetivamente fluem entre eles — e as duas nem sempre coincidem. Uma rede Ethernet moderna com switch, por exemplo, tem topologia física em **estrela**, mas historicamente se comportava como um **barramento lógico** (todos competindo pelo mesmo meio); hoje, com switches full-duplex, cada porta é praticamente um enlace ponto a ponto isolado. Ver [`06_componentes_fisicos/`](../06_componentes_fisicos/) para os equipamentos citados aqui.
 
 ---
 
@@ -12,7 +14,7 @@ As topologias definem como os dispositivos estão organizados fisicamente ou log
         \     /
          \   /
          [ SWITCH ]
-         /   \\
+         /   \
       [PC]  [PC]
 ```
 

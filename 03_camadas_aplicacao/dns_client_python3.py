@@ -6,6 +6,7 @@ Camada de Aplicação — Redes de Computadores / ADS
 Objetivo:
     - Demonstrar consulta DNS manual via UDP.
     - Montar um pacote DNS simples (tipo A).
+    - Interpretar a resposta bruta e extrair o(s) endereço(s) IPv4 retornado(s).
     - Explicar a estrutura do protocolo na prática.
 
 Execução:
@@ -14,6 +15,7 @@ Execução:
 
 import socket
 import random
+import struct
 
 DNS_SERVER = "8.8.8.8"     # Servidor DNS do Google
 DNS_PORT = 53              # Porta padrão DNS
@@ -62,6 +64,54 @@ def montar_pacote_dns(dominio):
     return tid, header + body
 
 
+def pular_nome(pacote, offset):
+    """
+    Avança o offset além de um campo NAME do DNS, seguindo ponteiros
+    de compressão (RFC 1035, seção 4.1.4) quando presentes.
+    """
+    while True:
+        tamanho = pacote[offset]
+
+        if tamanho == 0:               # fim do nome
+            offset += 1
+            break
+
+        if (tamanho & 0xC0) == 0xC0:   # ponteiro de compressão (2 bytes)
+            offset += 2
+            break
+
+        offset += 1 + tamanho          # pula label (tamanho + conteúdo)
+
+    return offset
+
+
+def parsear_resposta(pacote):
+    """
+    Interpreta o cabeçalho e a Answer Section de uma resposta DNS,
+    extraindo os endereços IPv4 (registros tipo A) retornados.
+    """
+    ancount = struct.unpack("!H", pacote[6:8])[0]
+
+    # Pula cabeçalho (12 bytes) e a Question Section (nome + QTYPE + QCLASS)
+    offset = pular_nome(pacote, 12) + 4
+
+    enderecos = []
+    for _ in range(ancount):
+        offset = pular_nome(pacote, offset)  # NAME da resposta
+
+        tipo, _classe, ttl, rdlength = struct.unpack("!HHIH", pacote[offset:offset + 10])
+        offset += 10
+
+        rdata = pacote[offset:offset + rdlength]
+        offset += rdlength
+
+        if tipo == 1 and rdlength == 4:      # Tipo A = endereço IPv4
+            ip = ".".join(str(b) for b in rdata)
+            enderecos.append((ip, ttl))
+
+    return enderecos
+
+
 def main():
     tid, pacote = montar_pacote_dns(DOMINIO)
 
@@ -78,6 +128,14 @@ def main():
 
         print("Resposta bruta (hex):")
         print(resposta.hex())
+
+        enderecos = parsear_resposta(resposta)
+        if enderecos:
+            print("\n[+] Endereços IPv4 (registros tipo A) encontrados:")
+            for ip, ttl in enderecos:
+                print(f"    {ip}   (TTL={ttl}s)")
+        else:
+            print("\n[-] Nenhum registro tipo A encontrado na resposta.")
 
     except socket.timeout:
         print("[-] Tempo de resposta esgotado!")

@@ -97,6 +97,12 @@ Desenhe e rotule os componentes.
 
 ---
 
+## ➡️ Próximo módulo
+
+Depois de consolidar estes fundamentos, siga para [`02_modelos_de_comunicacao/`](../02_modelos_de_comunicacao/), onde os conceitos de protocolo e endereçamento apresentados aqui são organizados nos modelos OSI e TCP/IP.
+
+---
+
 # 👨‍🏫 Notas para Professores
 
 - Este módulo é ideal para a **primeira semana de aula**.  

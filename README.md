@@ -102,7 +102,7 @@ alunos\
 -   Controle de congestionamento\
 -   Multiplexação
 
-## 🟥 5. Camada de Rede --- `05_camadas_de_rede/`
+## 🟥 5. Camada de Rede --- `05_camadas_rede/`
 
 -   IPv4\
 -   IPv6\

@@ -34,7 +34,7 @@ Ao final deste módulo, o estudante será capaz de:
 | Arquivo | Descrição |
 |--------|-----------|
 | `http_client_python3.py` | Cliente HTTP construído manualmente usando sockets. |
-| `dns_client_python3.py` | Cliente DNS via UDP montando o pacote manualmente. |
+| `dns_client_python3.py` | Cliente DNS via UDP: monta a consulta manualmente e interpreta a resposta (extrai os IPs retornados). |
 | `smtp_enviar_python3.py` | Envio didático de e-mail usando SMTP. |
 | `conceitos_camadas_aplicacao.md` | Conteúdo teórico sobre a camada de aplicação. |
 | `exercicios_camadas_aplicacao.md` | Lista de exercícios e desafios práticos. |

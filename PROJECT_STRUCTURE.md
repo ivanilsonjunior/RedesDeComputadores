@@ -55,7 +55,7 @@ Exemplo: - `01_conceitos_basicos/` → fundamentos\
 - `02_modelos_de_comunicacao/` → OSI, TCP/IP\
 - `03_camadas_aplicacao/` → protocolos de aplicação\
 - `04_camadas_transporte/` → TCP/UDP\
-- `05_camadas_de_rede/` → IPv4, IPv6, roteamento\
+- `05_camadas_rede/` → IPv4, IPv6, roteamento\
 - `06_componentes_fisicos/` → hardware de redes
 
 ------------------------------------------------------------------------
