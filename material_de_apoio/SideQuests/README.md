@@ -78,6 +78,7 @@ SideQuests/
 │           ├───Blocos
 │           │   └───aes
 │           └───Cesar3Chaves
+├───TextoParaFala
 └───WebScraping
 ```
 
