@@ -59,6 +59,7 @@ SideQuests/
 │   ├───ComunicaçãoSerial
 │   └───MedidorDeSom
 ├───LocalizadorComputadores
+├───MonitorAgendamentoPCI
 ├───MouseTeclado
 ├───Segurança
 │   └───Criptografia
